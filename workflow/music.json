@@ -1,0 +1,118 @@
+{
+  "1": {
+    "inputs": {
+      "ckpt_name": "stable_audio_3\\stable-audio-3-small-music.safetensors"
+    },
+    "class_type": "CheckpointLoaderSimple",
+    "_meta": {
+      "title": "Load Checkpoint"
+    }
+  },
+  "3": {
+    "inputs": {
+      "clip_name": "t5gemma_b_b_ul2.safetensors",
+      "type": "stable_audio",
+      "device": "default"
+    },
+    "class_type": "CLIPLoader",
+    "_meta": {
+      "title": "Load CLIP"
+    }
+  },
+  "4": {
+    "inputs": {
+      "seed": 133702526214589,
+      "steps": 8,
+      "cfg": 1,
+      "sampler_name": "euler",
+      "scheduler": "simple",
+      "denoise": 1,
+      "model": [
+        "1",
+        0
+      ],
+      "positive": [
+        "5",
+        0
+      ],
+      "negative": [
+        "12",
+        0
+      ],
+      "latent_image": [
+        "23",
+        0
+      ]
+    },
+    "class_type": "KSampler",
+    "_meta": {
+      "title": "KSampler"
+    }
+  },
+  "5": {
+    "inputs": {
+      "text": "House music that encapsulates the feeling of being at a festival in the sunny weather with all your friends 124 BPM",
+      "clip": [
+        "3",
+        0
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "CLIP Text Encode (Prompt)"
+    }
+  },
+  "11": {
+    "inputs": {
+      "samples": [
+        "4",
+        0
+      ],
+      "vae": [
+        "1",
+        2
+      ]
+    },
+    "class_type": "VAEDecodeAudio",
+    "_meta": {
+      "title": "VAE Decode Audio"
+    }
+  },
+  "12": {
+    "inputs": {
+      "conditioning": [
+        "5",
+        0
+      ]
+    },
+    "class_type": "ConditioningZeroOut",
+    "_meta": {
+      "title": "ConditioningZeroOut"
+    }
+  },
+  "23": {
+    "inputs": {
+      "seconds": 30,
+      "batch_size": 1
+    },
+    "class_type": "EmptyLatentAudio",
+    "_meta": {
+      "title": "Empty Latent Audio"
+    }
+  },
+  "24": {
+    "inputs": {
+      "filename_prefix": "audio_output_gradio/Music",
+      "quality": "V0",
+      "audioUI": "",
+      "audio": [
+        "11",
+        0
+      ]
+    },
+    "class_type": "SaveAudioMP3",
+    "_meta": {
+      "title": "Save Audio (MP3)"
+    }
+  }
+}

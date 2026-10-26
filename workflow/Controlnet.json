@@ -1,0 +1,197 @@
+{
+  "1": {
+    "inputs": {
+      "strength": 1,
+      "start_percent": 0,
+      "end_percent": 1,
+      "positive": [
+        "2",
+        0
+      ],
+      "negative": [
+        "6",
+        0
+      ],
+      "control_net": [
+        "9",
+        0
+      ],
+      "image": [
+        "10",
+        0
+      ],
+      "vae": [
+        "3",
+        2
+      ]
+    },
+    "class_type": "ControlNetApplyAdvanced",
+    "_meta": {
+      "title": "Apply ControlNet"
+    }
+  },
+  "2": {
+    "inputs": {
+      "text": "good looking men in given pose\n",
+      "clip": [
+        "3",
+        1
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "CLIP Text Encode (Prompt)"
+    }
+  },
+  "3": {
+    "inputs": {
+      "ckpt_name": "epicrealism_naturalSinRC1VAE.safetensors"
+    },
+    "class_type": "CheckpointLoaderSimple",
+    "_meta": {
+      "title": "Load Checkpoint"
+    }
+  },
+  "4": {
+    "inputs": {
+      "seed": 706171536804692,
+      "steps": 25,
+      "cfg": 5,
+      "sampler_name": "dpmpp_3m_sde",
+      "scheduler": "karras",
+      "denoise": 1,
+      "model": [
+        "3",
+        0
+      ],
+      "positive": [
+        "1",
+        0
+      ],
+      "negative": [
+        "1",
+        1
+      ],
+      "latent_image": [
+        "5",
+        0
+      ]
+    },
+    "class_type": "KSampler",
+    "_meta": {
+      "title": "KSampler"
+    }
+  },
+  "5": {
+    "inputs": {
+      "width": 512,
+      "height": 512,
+      "batch_size": 1
+    },
+    "class_type": "EmptyLatentImage",
+    "_meta": {
+      "title": "Empty Latent Image"
+    }
+  },
+  "6": {
+    "inputs": {
+      "text": "",
+      "clip": [
+        "3",
+        1
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "CLIP Text Encode (Prompt)"
+    }
+  },
+  "7": {
+    "inputs": {
+      "samples": [
+        "4",
+        0
+      ],
+      "vae": [
+        "3",
+        2
+      ]
+    },
+    "class_type": "VAEDecode",
+    "_meta": {
+      "title": "VAE Decode"
+    }
+  },
+  "8": {
+    "inputs": {
+      "filename_prefix": "outpur_from_gradio/Controlnet",
+      "images": [
+        "7",
+        0
+      ]
+    },
+    "class_type": "SaveImage",
+    "_meta": {
+      "title": "Save Image"
+    }
+  },
+  "9": {
+    "inputs": {
+      "control_net_name": "1.5\\control_v11p_sd15_openpose_fp16.safetensors"
+    },
+    "class_type": "ControlNetLoader",
+    "_meta": {
+      "title": "Load ControlNet Model"
+    }
+  },
+  "10": {
+    "inputs": {
+      "preprocessor": "openpose",
+      "sd_version": "sd15",
+      "resolution": 512,
+      "preprocessor_override": "None",
+      "image": [
+        "11",
+        0
+      ]
+    },
+    "class_type": "AV_ControlNetPreprocessor",
+    "_meta": {
+      "title": "ControlNet Preprocessor"
+    }
+  },
+  "11": {
+    "inputs": {
+      "image": "download.jpg"
+    },
+    "class_type": "LoadImage",
+    "_meta": {
+      "title": "Load Image"
+    }
+  },
+  "12": {
+    "inputs": {
+      "images": [
+        "10",
+        0
+      ]
+    },
+    "class_type": "PreviewImage",
+    "_meta": {
+      "title": "Preview Image"
+    }
+  },
+  "17": {
+    "inputs": {
+      "filename_prefix": "inpute_from_gradio/controlnet",
+      "images": [
+        "11",
+        0
+      ]
+    },
+    "class_type": "SaveImage",
+    "_meta": {
+      "title": "Save Image"
+    }
+  }
+}

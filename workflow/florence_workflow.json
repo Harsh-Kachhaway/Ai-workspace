@@ -1,0 +1,73 @@
+{
+  "18": {
+    "inputs": {
+      "text_input": "",
+      "task": "more_detailed_caption",
+      "fill_mask": true,
+      "keep_model_loaded": false,
+      "max_new_tokens": 512,
+      "num_beams": 3,
+      "do_sample": true,
+      "output_mask_select": "",
+      "seed": 107787019693261,
+      "image": [
+        "20",
+        0
+      ],
+      "florence2_model": [
+        "19",
+        0
+      ]
+    },
+    "class_type": "Florence2Run",
+    "_meta": {
+      "title": "Florence2Run"
+    }
+  },
+  "19": {
+    "inputs": {
+      "model": "gokaygokay/Florence-2-SD3-Captioner",
+      "precision": "fp16",
+      "convert_to_safetensors": false
+    },
+    "class_type": "DownloadAndLoadFlorence2Model",
+    "_meta": {
+      "title": "DownloadAndLoadFlorence2Model"
+    }
+  },
+  "20": {
+    "inputs": {
+      "image": "ChatGPT Image May 7, 2026, 03_57_13 AM.png"
+    },
+    "class_type": "LoadImage",
+    "_meta": {
+      "title": "Load Image"
+    }
+  },
+  "21": {
+    "inputs": {
+      "filename_prefix": "inpute_from_gradio/florence_img_to_prom_img",
+      "images": [
+        "20",
+        0
+      ]
+    },
+    "class_type": "SaveImage",
+    "_meta": {
+      "title": "Save Image"
+    }
+  },
+  "22": {
+    "inputs": {
+      "output": "",
+      "source": [
+        "18",
+        2
+      ]
+    },
+    "class_type": "Display Any (rgthree)",
+    "_meta": {
+      "title": "Display Any (rgthree)"
+    }
+  }
+}

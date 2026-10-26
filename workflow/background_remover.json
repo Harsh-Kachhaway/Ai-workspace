@@ -1,0 +1,159 @@
+{
+  "1": {
+    "inputs": {
+      "ckpt_name": "sam3.1_multiplex_fp16.safetensors"
+    },
+    "class_type": "CheckpointLoaderSimple",
+    "_meta": {
+      "title": "Load Checkpoint"
+    }
+  },
+  "2": {
+    "inputs": {
+      "threshold": 0.5,
+      "refine_iterations": 4,
+      "individual_masks": false,
+      "model": [
+        "1",
+        0
+      ],
+      "image": [
+        "15",
+        0
+      ],
+      "conditioning": [
+        "3",
+        0
+      ]
+    },
+    "class_type": "SAM3_Detect",
+    "_meta": {
+      "title": "SAM3 Detect"
+    }
+  },
+  "3": {
+    "inputs": {
+      "text": "person",
+      "clip": [
+        "1",
+        1
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "CLIP Text Encode (Prompt)"
+    }
+  },
+  "4": {
+    "inputs": {
+      "image": "Per Carlsen’s Surrealist Constructed Worlds Expand The Possibilities Of Architecture - IGNANT.webp"
+    },
+    "class_type": "LoadImage",
+    "_meta": {
+      "title": "Load Image"
+    }
+  },
+  "6": {
+    "inputs": {
+      "mask": [
+        "2",
+        0
+      ]
+    },
+    "class_type": "InvertMask",
+    "_meta": {
+      "title": "InvertMask"
+    }
+  },
+  "9": {
+    "inputs": {
+      "images": [
+        "22",
+        0
+      ]
+    },
+    "class_type": "PreviewImage",
+    "_meta": {
+      "title": "Preview Image"
+    }
+  },
+  "15": {
+    "inputs": {
+      "longer_edge": 1024,
+      "images": [
+        "4",
+        0
+      ]
+    },
+    "class_type": "ResizeImagesByLongerEdge",
+    "_meta": {
+      "title": "Resize Images by Longer Edge"
+    }
+  },
+  "16": {
+    "inputs": {
+      "padding": 0,
+      "image": [
+        "22",
+        0
+      ]
+    },
+    "class_type": "AILab_CropObject",
+    "_meta": {
+      "title": "Crop To Object (RMBG) 🖼️🎭"
+    }
+  },
+  "17": {
+    "inputs": {
+      "images": [
+        "16",
+        0
+      ]
+    },
+    "class_type": "PreviewImage",
+    "_meta": {
+      "title": "Preview Image"
+    }
+  },
+  "19": {
+    "inputs": {
+      "mask": [
+        "2",
+        0
+      ]
+    },
+    "class_type": "MaskPreview",
+    "_meta": {
+      "title": "Preview Mask"
+    }
+  },
+  "22": {
+    "inputs": {
+      "image": [
+        "4",
+        0
+      ],
+      "alpha": [
+        "6",
+        0
+      ]
+    },
+    "class_type": "JoinImageWithAlpha",
+    "_meta": {
+      "title": "Join Image with Alpha"
+    }
+  },
+  "23": {
+    "inputs": {
+      "filename_prefix": "inpute_from_gradio/Background_remover",
+      "images": [
+        "4",
+        0
+      ]
+    },
+    "class_type": "SaveImage",
+    "_meta": {
+      "title": "Save Image"
+    }
+  }
+}

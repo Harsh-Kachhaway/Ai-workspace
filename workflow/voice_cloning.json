@@ -1,0 +1,70 @@
+{
+  "1": {
+    "inputs": {
+      "target_text": "Good one. Okay, fine, I'm just gonna leave this sock monkey here. Goodbye.",
+      "model_choice": "0.6B",
+      "device": "cuda",
+      "precision": "bf16",
+      "language": "Auto",
+      "ref_text": "",
+      "seed": 562034064352593,
+      "max_new_tokens": 512,
+      "top_p": 0.8,
+      "top_k": 20,
+      "temperature": 1,
+      "repetition_penalty": 1.05,
+      "x_vector_only": true,
+      "attention": "auto",
+      "unload_model_after_generate": false,
+      "custom_model_path": "",
+      "ref_audio": [
+        "2",
+        0
+      ]
+    },
+    "class_type": "FB_Qwen3TTSVoiceClone",
+    "_meta": {
+      "title": "🎭 Qwen3-TTS VoiceClone"
+    }
+  },
+  "2": {
+    "inputs": {
+      "audio": "WhatsApp Audio 2026-05-26 at 08.47.02.mp3",
+      "audioUI": "/api/view?filename=WhatsApp%20Audio%202026-05-26%20at%2008.47.02.mp3&type=input&subfolder=&rand=0.21165243378014464"
+    },
+    "class_type": "LoadAudio",
+    "_meta": {
+      "title": "Load Audio"
+    }
+  },
+  "7": {
+    "inputs": {
+      "filename_prefix": "audio_output_gradio/Voice_cloning",
+      "quality": "V0",
+      "audioUI": "/api/view?filename=VoiceClone_workflow_00001_.mp3&type=output&subfolder=audio&rand=0.8317196915404854",
+      "audio": [
+        "1",
+        0
+      ]
+    },
+    "class_type": "SaveAudioMP3",
+    "_meta": {
+      "title": "Save Audio (MP3)"
+    }
+  },
+  "9": {
+    "inputs": {
+      "filename_prefix": "audio_input_gradio/Voice_cloning",
+      "quality": "V0",
+      "audioUI": "",
+      "audio": [
+        "2",
+        0
+      ]
+    },
+    "class_type": "SaveAudioMP3",
+    "_meta": {
+      "title": "Save Audio (MP3)"
+    }
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "1": {
+    "inputs": {
+      "text": "And honestly? It makes me furious. How could you just leave things the way you did? You didn't even try to talk it out! You just packed up your pride and let everything we built go to hell because running away was easier than staying and fighting for it. It's so selfish!",
+      "speaker": "Aiden",
+      "model_choice": "0.6B",
+      "device": "auto",
+      "precision": "bf16",
+      "language": "Auto",
+      "seed": 699736900980453,
+      "instruct": "angry\n",
+      "max_new_tokens": 512,
+      "top_p": 0.8,
+      "top_k": 20,
+      "temperature": 1,
+      "repetition_penalty": 1.05,
+      "attention": "auto",
+      "unload_model_after_generate": false,
+      "custom_model_path": "",
+      "custom_speaker_name": ""
+    },
+    "class_type": "FB_Qwen3TTSCustomVoice",
+    "_meta": {
+      "title": "🎵 Qwen3-TTS CustomVoice"
+    }
+  },
+  "6": {
+    "inputs": {
+      "filename_prefix": "audio_output_gradio/Custom_instruction",
+      "quality": "V0",
+      "audioUI": "/api/view?filename=Custom_instruction_00002_.mp3&type=output&subfolder=audio_output_gradio&rand=0.0649475105978583",
+      "audio": [
+        "1",
+        0
+      ]
+    },
+    "class_type": "SaveAudioMP3",
+    "_meta": {
+      "title": "Save Audio (MP3)"
+    }
+  }
+}
