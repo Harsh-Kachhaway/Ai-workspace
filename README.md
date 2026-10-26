@@ -5,6 +5,10 @@
 ![Cost](https://img.shields.io/badge/API_Costs-$0-brightgreen)
 
 A unified, local-first multimodal AI platform combining advanced image and audio generation into a single, minimal web interface. 
+### 📸 Live Demo
+[![Watch the NLP-to-SQL Demo](https://github.com/Harsh-Kachhaway/Ai-workspace/blob/main/Screenshot%202026-10-26%20172028.png)](https://lnkd.in/p/dGpVyXRU)
+
+*Click the image above to watch the full working demo on LinkedIn.*
 
 ### 🎯 The Goal: Zero-Cost, Uncapped AI
 Relying on external AI services introduces token limits, pay-per-generation models, and high API overhead. This project was built to solve that by running **100% on local hardware**. 
